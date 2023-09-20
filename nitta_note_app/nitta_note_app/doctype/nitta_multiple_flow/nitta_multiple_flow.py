@@ -109,22 +109,11 @@ class NittaMultipleflow(Document):
 			self.next_approval_by=user
 			if status=="Rejected":
 				self.rejected=True
-			# 	self.status = (
-			# 	'<span style="color: red;">Level {}</span><span style="color:red;font-weight:bold"> Rejected</span> ('
-			# 	'<span style="color: green;">Approved: {}</span> '
-			# 	'<span style="color: red;">Rejected: {}</span> '
-			# 	'<span style="color: orange;">Pending: {}</span>)'.format(level, approved, rejected, pending)
-			# )
 				self.status='Level '+level+" Rejected "+'('+" approved: "+str(approved)+" rejected"+str(rejected)+" pending: "+str(pending)+')'
 			if status=="Final Approved":
-			# 	self.status = (
-			# 	'<span style="color:green;font-weight:bolder"> Final Approved</span> ('
-			# 	'<span style="color: green;">Approved: {}</span> '
-			# 	'<span style="color: red;">Rejected: {}</span> '
-			# 	'<span style="color: orange;">Pending: {}</span>)'.format(level, approved, rejected, pending)
-			# )
 				self.status="Final Approved "+'('+" Approved: "+str(approved)+" Rejected: "+str(rejected)+" pending: "+str(pending)+')'
 			if status=="Approved":
+				print("status")
 			# 	self.status = (
 			# 	'<span style="color: green;">Level {}</span><span style="color:green;font-weight:bold"> Approved</span> ('
 			# 	'<span style="color: green;">Approved: {}</span> '
