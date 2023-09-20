@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include nitta_multilevel_workflow *.css
+recursive-include nitta_multilevel_workflow *.csv
+recursive-include nitta_multilevel_workflow *.html
+recursive-include nitta_multilevel_workflow *.ico
+recursive-include nitta_multilevel_workflow *.js
+recursive-include nitta_multilevel_workflow *.json
+recursive-include nitta_multilevel_workflow *.md
+recursive-include nitta_multilevel_workflow *.png
+recursive-include nitta_multilevel_workflow *.py
+recursive-include nitta_multilevel_workflow *.svg
+recursive-include nitta_multilevel_workflow *.txt
+recursive-exclude nitta_multilevel_workflow *.pyc
