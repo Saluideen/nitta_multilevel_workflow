@@ -3,5 +3,5 @@
 *.egg-info
 *.swp
 tags
-nitta_multilevel_workflow/docs/current
+nitta_note_app/docs/current
 node_modules/

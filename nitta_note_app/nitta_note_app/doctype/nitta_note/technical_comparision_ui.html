@@ -1,0 +1,27 @@
+<div>
+    Technical Comparision Table
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                {% for vendor in vendors %}
+                <th>{{ vendor.vendor }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for parameter in parameters %}
+            <tr>
+                <td>
+                    <h5>{{ parameter.parameter }}</h5>
+                </td>
+                {% for vendor in vendors %}
+
+                <td>{{ data[parameter.index][vendor.index]}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>

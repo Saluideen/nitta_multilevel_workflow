@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-16 11:52:07.072786",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ringi_amount",
+  "pre_approve_amount",
+  "enable_email_notifications"
+ ],
+ "fields": [
+  {
+   "fieldname": "ringi_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Ringi Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pre_approve_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Pre approve Amount",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_email_notifications",
+   "fieldtype": "Check",
+   "label": "Enable Email Notifications"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-05-02 20:17:19.972534",
+ "modified_by": "Administrator",
+ "module": "Nitta Masters",
+ "name": "Nitta Constant",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Nitta User",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

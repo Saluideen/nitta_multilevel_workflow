@@ -1,0 +1,93 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-18 12:03:34.745921",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "department",
+  "role",
+  "user",
+  "status",
+  "assigned_date",
+  "updated_date",
+  "alert_in_days",
+  "level_count",
+  "level",
+  "approval_count"
+ ],
+ "fields": [
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department and Function"
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Link",
+   "label": "Role",
+   "options": "Nitta Role"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "Nitta User"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nApproved\nRejected"
+  },
+  {
+   "fieldname": "assigned_date",
+   "fieldtype": "Date",
+   "label": "Assigned Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "updated_date",
+   "fieldtype": "Date",
+   "label": "Updated Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "alert_in_days",
+   "fieldtype": "Data",
+   "label": "Alert In Days"
+  },
+  {
+   "fieldname": "level_count",
+   "fieldtype": "Data",
+   "label": "Level Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "level",
+   "fieldtype": "Link",
+   "label": "Level",
+   "options": "Nitta Level"
+  },
+  {
+   "fieldname": "approval_count",
+   "fieldtype": "Data",
+   "label": "Approval Count"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-09-19 11:14:11.311183",
+ "modified_by": "Administrator",
+ "module": "Nitta Note App",
+ "name": "Nitta Multiple Approval Flow",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

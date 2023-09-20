@@ -4,15 +4,15 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include nitta_multilevel_workflow *.css
-recursive-include nitta_multilevel_workflow *.csv
-recursive-include nitta_multilevel_workflow *.html
-recursive-include nitta_multilevel_workflow *.ico
-recursive-include nitta_multilevel_workflow *.js
-recursive-include nitta_multilevel_workflow *.json
-recursive-include nitta_multilevel_workflow *.md
-recursive-include nitta_multilevel_workflow *.png
-recursive-include nitta_multilevel_workflow *.py
-recursive-include nitta_multilevel_workflow *.svg
-recursive-include nitta_multilevel_workflow *.txt
-recursive-exclude nitta_multilevel_workflow *.pyc
+recursive-include nitta_note_app *.css
+recursive-include nitta_note_app *.csv
+recursive-include nitta_note_app *.html
+recursive-include nitta_note_app *.ico
+recursive-include nitta_note_app *.js
+recursive-include nitta_note_app *.json
+recursive-include nitta_note_app *.md
+recursive-include nitta_note_app *.png
+recursive-include nitta_note_app *.py
+recursive-include nitta_note_app *.svg
+recursive-include nitta_note_app *.txt
+recursive-exclude nitta_note_app *.pyc

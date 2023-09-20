@@ -1,0 +1,567 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "F.####",
+ "creation": "2023-02-08 20:13:40.606684",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_tab",
+  "financial_year",
+  "column_break_sgbxn",
+  "section_break_k6lze",
+  "note_no",
+  "division",
+  "column_break_8axoc",
+  "date",
+  "departmentfunction",
+  "note_type_section",
+  "expense_category",
+  "budget_provision",
+  "is_pre_approval_note",
+  "proposal_type",
+  "column_break_hqidn",
+  "item_category",
+  "nature_of_expenditure",
+  "note_details_section",
+  "financial_tab",
+  "gl_account_no",
+  "sn_in_budget_sheet",
+  "description",
+  "column_break_xt22o",
+  "budget_amount_rs",
+  "internal_order_no",
+  "ref_section",
+  "ref",
+  "proposal_details_tab",
+  "title",
+  "proposal_highlights_tab",
+  "project_start_date",
+  "column_break_pqrv3",
+  "project_completion_date",
+  "section_break_r3hvs",
+  "section_break_o2tfx",
+  "cost_estimate",
+  "section_break_uz9fu",
+  "expected_amount",
+  "column_break_cxt3r",
+  "revised_amount",
+  "proposal_details_section",
+  "background",
+  "details_of_the_proposal",
+  "recommendation",
+  "tab_break_zfyps",
+  "technical_comparision",
+  "view_technical_comparision",
+  "technical_comparison_file_section",
+  "technical_comparison_file",
+  "technical_comparison_file_name",
+  "upload_technical_comparison",
+  "remove_technical_comparison",
+  "download_technical_comparison",
+  "quotations_tab",
+  "quotations_section",
+  "vendors",
+  "commercial_comparison_file_section",
+  "commercial_comparison_file",
+  "commercial_comparison_file_name",
+  "upload_commercial_comparison",
+  "remove_commercial_comparison",
+  "download_commercial_comparison",
+  "attachment_tab",
+  "attachments_tab",
+  "attachment_section",
+  "other_attachments",
+  "approval_flow_tab",
+  "work_flow_name",
+  "initiated_by",
+  "current_approval_level",
+  "column_break_qpmdo",
+  "next_approval_by",
+  "max_approval_level",
+  "status",
+  "section_break_ry8o6",
+  "approval_flow",
+  "copy_to",
+  "naming_series"
+ ],
+ "fields": [
+  {
+   "fetch_if_empty": 1,
+   "fieldname": "note_no",
+   "fieldtype": "Data",
+   "label": "Note No",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "division",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Division",
+   "options": "Division",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_8axoc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "departmentfunction",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department/Function",
+   "options": "Department and Function",
+   "reqd": 1
+  },
+  {
+   "fieldname": "note_details_section",
+   "fieldtype": "Section Break",
+   "label": "Note Details"
+  },
+  {
+   "fieldname": "approval_flow_tab",
+   "fieldtype": "Tab Break",
+   "label": "Approval Flow"
+  },
+  {
+   "fieldname": "work_flow_name",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Work Flow Name",
+   "options": "Nitta Workflow"
+  },
+  {
+   "fieldname": "initiated_by",
+   "fieldtype": "Link",
+   "label": "Initiated By",
+   "options": "Nitta User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_approval_level",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Current Approval Level",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qpmdo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_approval_by",
+   "fieldtype": "Link",
+   "label": "Next Approval By",
+   "options": "Nitta User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "max_approval_level",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Max Approval Level",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ry8o6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "approval_flow",
+   "fieldtype": "Table",
+   "label": "Approval Flow",
+   "options": "Nitta Approval Flow"
+  },
+  {
+   "fieldname": "note_type_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "expense_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Expense Category",
+   "options": "Expense Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_category",
+   "fieldtype": "Link",
+   "label": "Item Category",
+   "options": "Item Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hqidn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "budget_provision",
+   "fieldtype": "Link",
+   "label": "Budget Provision",
+   "options": "Budget Provision",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "expected_amount",
+   "fieldtype": "Currency",
+   "label": "Expected Amount",
+   "options": "INR",
+   "precision": "0"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_pre_approval_note",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Pre Approval Note"
+  },
+  {
+   "fieldname": "financial_tab",
+   "fieldtype": "Section Break",
+   "label": "Budget Details"
+  },
+  {
+   "fieldname": "sn_in_budget_sheet",
+   "fieldtype": "Link",
+   "label": "SN in budget Sheet",
+   "options": "Capex Expense"
+  },
+  {
+   "fieldname": "internal_order_no",
+   "fieldtype": "Data",
+   "label": "Internal order no"
+  },
+  {
+   "fieldname": "column_break_xt22o",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "budget_amount_rs",
+   "fieldtype": "Currency",
+   "label": "Budget amount, Rs.",
+   "options": "INR",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gl_account_no",
+   "fieldtype": "Link",
+   "label": "GL Account No.",
+   "options": "Revenue Expense"
+  },
+  {
+   "fieldname": "proposal_highlights_tab",
+   "fieldtype": "Section Break",
+   "label": "Proposal Highlights"
+  },
+  {
+   "default": "0",
+   "fieldname": "cost_estimate",
+   "fieldtype": "Table",
+   "label": "Cost Estimate",
+   "options": "Nitta Other Amount"
+  },
+  {
+   "fieldname": "proposal_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Proposal Details"
+  },
+  {
+   "fieldname": "proposal_details_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "attachment_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "quotations_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "background",
+   "fieldtype": "Text Editor",
+   "label": "Background"
+  },
+  {
+   "fieldname": "details_of_the_proposal",
+   "fieldtype": "Text Editor",
+   "label": "Details of the proposal"
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Text Editor",
+   "label": "Benefits and Recommendation"
+  },
+  {
+   "fieldname": "attachment_tab",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "other_attachments",
+   "fieldtype": "Table",
+   "label": "Other Attachments",
+   "options": "Nitta Attachments"
+  },
+  {
+   "fieldname": "basic_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic info"
+  },
+  {
+   "fieldname": "quotations_tab",
+   "fieldtype": "Tab Break",
+   "label": "Commercial Comparison"
+  },
+  {
+   "columns": 3,
+   "fieldname": "vendors",
+   "fieldtype": "Table",
+   "label": "Vendors",
+   "options": "Nitta Vendor Quotations",
+   "width": "250px"
+  },
+  {
+   "fieldname": "attachments_tab",
+   "fieldtype": "Tab Break",
+   "label": "Other Attachments"
+  },
+  {
+   "fieldname": "copy_to",
+   "fieldtype": "Table",
+   "label": "Copy To",
+   "options": "Nitta CC"
+  },
+  {
+   "fieldname": "nature_of_expenditure",
+   "fieldtype": "Select",
+   "label": "Nature of Expenditure",
+   "options": "New Asset Creation\nReplacement of existing Asset"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Nitta Financial Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_k6lze",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_sgbxn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "revised_amount",
+   "fieldtype": "Currency",
+   "label": "Revised Amount",
+   "non_negative": 1,
+   "options": "INR",
+   "precision": "0"
+  },
+  {
+   "fieldname": "ref",
+   "fieldtype": "Table",
+   "label": "Reference Note",
+   "options": "Nitta Note Reference"
+  },
+  {
+   "fieldname": "ref_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "project_start_date",
+   "fieldtype": "Date",
+   "label": "Project Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pqrv3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project_completion_date",
+   "fieldtype": "Date",
+   "label": "Project Completion Date"
+  },
+  {
+   "fieldname": "tab_break_zfyps",
+   "fieldtype": "Tab Break",
+   "label": "Technical Comparison"
+  },
+  {
+   "fieldname": "technical_comparision",
+   "fieldtype": "Table",
+   "label": "Technical Comparision",
+   "options": "Nitta Technical Comparision"
+  },
+  {
+   "fieldname": "view_technical_comparision",
+   "fieldtype": "HTML",
+   "label": "View Technical Comparison "
+  },
+  {
+   "fieldname": "section_break_o2tfx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_r3hvs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_cxt3r",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_uz9fu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "naming_series",
+   "options": ".financial_year.-"
+  },
+  {
+   "fieldname": "commercial_comparison_file",
+   "fieldtype": "Data",
+   "label": "File",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.technical_comparison_file_name==undefined",
+   "fieldname": "upload_technical_comparison",
+   "fieldtype": "Button",
+   "label": "Upload File"
+  },
+  {
+   "fieldname": "technical_comparison_file_section",
+   "fieldtype": "Section Break",
+   "label": "Technical Comparison File"
+  },
+  {
+   "fieldname": "technical_comparison_file_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "File Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "technical_comparison_file",
+   "fieldtype": "Data",
+   "label": "File",
+   "read_only": 1
+  },
+  {
+   "depends_on": "technical_comparison_file_name",
+   "fieldname": "remove_technical_comparison",
+   "fieldtype": "Button",
+   "label": "Remove File"
+  },
+  {
+   "depends_on": "technical_comparison_file_name",
+   "fieldname": "download_technical_comparison",
+   "fieldtype": "Button",
+   "label": "Download File"
+  },
+  {
+   "fieldname": "commercial_comparison_file_section",
+   "fieldtype": "Section Break",
+   "label": "Commercial Comparison File"
+  },
+  {
+   "fieldname": "commercial_comparison_file_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "File Name"
+  },
+  {
+   "depends_on": "eval:doc.commercial_comparison_file_name==undefined",
+   "fieldname": "upload_commercial_comparison",
+   "fieldtype": "Button",
+   "label": "Upload File"
+  },
+  {
+   "depends_on": "commercial_comparison_file_name",
+   "fieldname": "remove_commercial_comparison",
+   "fieldtype": "Button",
+   "label": "Remove File"
+  },
+  {
+   "depends_on": "commercial_comparison_file_name",
+   "fieldname": "download_commercial_comparison",
+   "fieldtype": "Button",
+   "label": "Download File"
+},
+{
+ "default": "Full Proposal",
+ "fieldname": "proposal_type",
+ "fieldtype": "Select",
+ "label": "Proposal Type",
+ "options": "Full Proposal\nIn Principal Proposal (Pre Approval)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-15 11:46:15.541853",
+ "modified_by": "Administrator",
+ "module": "Nitta Note App",
+ "name": "Nitta Note",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "note_no",
+ "track_seen": 1
+}

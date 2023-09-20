@@ -1,0 +1,53 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"gas-X84AtE\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Nitta Notes</span>\",\"col\":12}},{\"id\":\"7kiNqjtYsS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Financial Note\",\"col\":3}},{\"id\":\"mUGS38nbm3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Financial Note\",\"col\":3}},{\"id\":\"nfA3tzO6ks\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Note Status Dashboard\",\"col\":3}}]",
+ "creation": "2023-03-15 09:48:15.937123",
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "milestone",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Nitta Notes",
+ "links": [],
+ "modified": "2023-04-21 12:20:38.817817",
+ "modified_by": "Administrator",
+ "module": "Nitta Note App",
+ "name": "Nitta Notes",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Nitta User"
+  }
+ ],
+ "sequence_id": 31.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Note Status Dashboard",
+   "link_to": "Notes Status",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Non Financial Note",
+   "link_to": "Non Financial Note",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Financial Note",
+   "link_to": "Nitta Note",
+   "type": "DocType"
+  }
+ ],
+ "title": "Nitta Notes"
+}

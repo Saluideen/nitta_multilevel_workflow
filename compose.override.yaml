@@ -1,0 +1,21 @@
+services:
+  configurator:
+    image: nitta_note_app/worker:latest
+
+  backend:
+    image: nitta_note_app/worker:latest
+
+  frontend:
+    image: nitta_note_app/nginx:latest
+
+  queue-short:
+    image: nitta_note_app/worker:latest
+
+  queue-default:
+    image: nitta_note_app/worker:latest
+
+  queue-long:
+    image: nitta_note_app/worker:latest
+
+  scheduler:
+    image: nitta_note_app/worker:latest

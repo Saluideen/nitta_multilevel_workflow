@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-18 13:58:26.939144",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "department",
+  "role",
+  "alert_in_days",
+  "level",
+  "level_count"
+ ],
+ "fields": [
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department and Function"
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Link",
+   "label": "Role",
+   "options": "Nitta Role"
+  },
+  {
+   "fieldname": "level",
+   "fieldtype": "Link",
+   "label": "Level",
+   "options": "Nitta Level"
+  },
+  {
+   "fieldname": "level_count",
+   "fieldtype": "Data",
+   "label": "Level Count"
+  },
+  {
+   "default": "2",
+   "fieldname": "alert_in_days",
+   "fieldtype": "Data",
+   "label": "Alert In Days"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-09-18 15:11:08.333559",
+ "modified_by": "Administrator",
+ "module": "Nitta Note App",
+ "name": "Nitta Multiple Transition",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

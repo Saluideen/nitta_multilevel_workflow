@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-18 12:16:58.014750",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "division",
+  "is_multilevel",
+  "workflow_name",
+  "workflow",
+  "status",
+  "next_approval_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "division",
+   "fieldtype": "Link",
+   "label": "Division",
+   "options": "Division"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_multilevel",
+   "fieldtype": "Check",
+   "label": "Is Multilevel"
+  },
+  {
+   "fieldname": "workflow",
+   "fieldtype": "Table",
+   "label": "Workflow",
+   "options": "Nitta Multiple Approval Flow",
+   "read_only": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Long Text",
+   "in_list_view": 1,
+   "label": "Status"
+  },
+  {
+   "fieldname": "workflow_name",
+   "fieldtype": "Data",
+   "label": "Workflow Name"
+  },
+  {
+   "fieldname": "next_approval_by",
+   "fieldtype": "Data",
+   "label": "Next Approved By"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-09-20 11:30:23.379423",
+ "modified_by": "Administrator",
+ "module": "Nitta Note App",
+ "name": "Nitta Multiple flow",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

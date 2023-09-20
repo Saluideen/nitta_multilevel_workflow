@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:workflow_name",
+ "creation": "2023-02-07 11:12:36.581448",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "note_type",
+  "workflow_name",
+  "budget_provision",
+  "lower_limit",
+  "column_break_hexih",
+  "entity_type",
+  "expense_category",
+  "item_category",
+  "upper_limit",
+  "is_pre_approval",
+  "section_break_nr8tt",
+  "transition_rules",
+  "copy_to"
+ ],
+ "fields": [
+  {
+   "fieldname": "note_type",
+   "fieldtype": "Select",
+   "label": "Note Type",
+   "options": "Financial\nNon Financial",
+   "reqd": 1
+  },
+  {
+   "fieldname": "workflow_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Workflow Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "budget_provision",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Budget Provision",
+   "options": "Budget Provision"
+  },
+  {
+   "fieldname": "lower_limit",
+   "fieldtype": "Currency",
+   "label": "Lower Limit"
+  },
+  {
+   "fieldname": "column_break_hexih",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "entity_type",
+   "fieldtype": "Select",
+   "label": "Entity Type",
+   "options": "All\nDepartment\nFunction",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expense_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Expense Category",
+   "options": "Expense Category"
+  },
+  {
+   "fieldname": "item_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Category",
+   "options": "Item Category"
+  },
+  {
+   "fieldname": "upper_limit",
+   "fieldtype": "Currency",
+   "label": "Upper Limit"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_pre_approval",
+   "fieldtype": "Check",
+   "label": "Is Pre Approval"
+  },
+  {
+   "fieldname": "section_break_nr8tt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "transition_rules",
+   "fieldtype": "Table",
+   "label": "Transition Rules",
+   "options": "Nitta Workflow Transition",
+   "reqd": 1
+  },
+  {
+   "fieldname": "copy_to",
+   "fieldtype": "Table",
+   "label": "Copy To",
+   "options": "Nitta Copy To"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-02 21:02:20.606440",
+ "modified_by": "Administrator",
+ "module": "Nitta Masters",
+ "name": "Nitta Workflow",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Nitta User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

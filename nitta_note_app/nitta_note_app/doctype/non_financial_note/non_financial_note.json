@@ -1,0 +1,246 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "NF.####",
+ "creation": "2023-02-05 13:56:52.036883",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_tab",
+  "financial_year",
+  "column_break_vfnwi",
+  "title",
+  "section_break_a26lm",
+  "note_no",
+  "division",
+  "column_break_8axoc",
+  "date",
+  "departmentfunction",
+  "note_details_section",
+  "proposal_highlights_tab",
+  "background",
+  "details_of_the_proposal",
+  "benefits",
+  "attachments_tab",
+  "attachments",
+  "approval_flow_tab",
+  "work_flow_name",
+  "current_approval_level",
+  "column_break_x2pzl",
+  "initiated_by",
+  "column_break_qpmdo",
+  "next_approval_by",
+  "max_approval_level",
+  "status",
+  "section_break_ry8o6",
+  "approval_flow",
+  "copy_to",
+  "naming_series"
+ ],
+ "fields": [
+  {
+   "fetch_if_empty": 1,
+   "fieldname": "note_no",
+   "fieldtype": "Data",
+   "label": "Note No",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "division",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Division",
+   "options": "Division",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_8axoc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "departmentfunction",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department/Function",
+   "options": "Department and Function",
+   "reqd": 1
+  },
+  {
+   "fieldname": "note_details_section",
+   "fieldtype": "Section Break",
+   "label": "Note Details"
+  },
+  {
+   "fieldname": "work_flow_name",
+   "fieldtype": "Link",
+   "label": "Work Flow Name",
+   "options": "Nitta Workflow"
+  },
+  {
+   "fieldname": "initiated_by",
+   "fieldtype": "Link",
+   "label": "Initiated By",
+   "options": "Nitta User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_approval_level",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Current Approval Level",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qpmdo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "next_approval_by",
+   "fieldtype": "Link",
+   "label": "Next Approval By",
+   "options": "Nitta User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "max_approval_level",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Max Approval Level",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ry8o6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "approval_flow",
+   "fieldtype": "Table",
+   "label": "Approval Flow",
+   "options": "Nitta Approval Flow"
+  },
+  {
+   "fieldname": "proposal_highlights_tab",
+   "fieldtype": "Section Break",
+   "label": "Proposal Details"
+  },
+  {
+   "fieldname": "basic_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic info"
+  },
+  {
+   "fieldname": "copy_to",
+   "fieldtype": "Table",
+   "label": "Copy To",
+   "options": "Nitta CC"
+  },
+  {
+   "fieldname": "section_break_a26lm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_x2pzl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attachments_tab",
+   "fieldtype": "Tab Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Nitta Attachments"
+  },
+  {
+   "fieldname": "background",
+   "fieldtype": "Text Editor",
+   "label": "Background"
+  },
+  {
+   "fieldname": "details_of_the_proposal",
+   "fieldtype": "Text Editor",
+   "label": "Proposal Details"
+  },
+  {
+   "fieldname": "benefits",
+   "fieldtype": "Text Editor",
+   "label": "Benefits And Recommendation"
+  },
+  {
+   "fieldname": "approval_flow_tab",
+   "fieldtype": "Tab Break",
+   "label": "Approval Flow"
+  },
+  {
+   "fieldname": "column_break_vfnwi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "naming_series",
+   "options": ".financial_year.-"
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Nitta Financial Year",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-18 17:07:49.261624",
+ "modified_by": "Administrator",
+ "module": "Nitta Note App",
+ "name": "Non Financial Note",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "note_no",
+ "track_seen": 1
+}

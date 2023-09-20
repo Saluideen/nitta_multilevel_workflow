@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-07 11:12:03.083396",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "department",
+  "role",
+  "alert_in_days"
+ ],
+ "fields": [
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department",
+   "options": "Department and Function",
+   "reqd": 1
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Role",
+   "options": "Nitta Role",
+   "reqd": 1
+  },
+  {
+   "default": "2",
+   "fieldname": "alert_in_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Alert in Days",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-05-02 21:00:48.791708",
+ "modified_by": "Administrator",
+ "module": "Nitta Masters",
+ "name": "Nitta Workflow Transition",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
