@@ -7,7 +7,6 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "division",
   "is_multilevel",
   "workflow_name",
   "workflow",
@@ -15,12 +14,6 @@
   "next_approval_by"
  ],
  "fields": [
-  {
-   "fieldname": "division",
-   "fieldtype": "Link",
-   "label": "Division",
-   "options": "Division"
-  },
   {
    "default": "0",
    "fieldname": "is_multilevel",
@@ -31,8 +24,7 @@
    "fieldname": "workflow",
    "fieldtype": "Table",
    "label": "Workflow",
-   "options": "Nitta Multiple Approval Flow",
-   "read_only": 1
+   "options": "Nitta Multiple Approval Flow"
   },
   {
    "default": "Draft",
@@ -54,7 +46,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-20 11:30:23.379423",
+ "modified": "2023-09-22 11:24:43.420445",
  "modified_by": "Administrator",
  "module": "Nitta Note App",
  "name": "Nitta Multiple flow",

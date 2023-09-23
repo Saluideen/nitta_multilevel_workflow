@@ -28,9 +28,7 @@ class NittaMultipleflow(Document):
 
 				# Doc Share For Next Approver
 					add_share(self.doctype, self.name, user=user, read=1, write=1, submit=0, share=1, everyone=0, notify=0)
-			# else:
-			# 	self.next_approval_by=None
-			# 	self.status="Final Approved"
+			
 
 			
 		self.reload()
@@ -62,8 +60,7 @@ class NittaMultipleflow(Document):
 		self.modify=False
 
 		current_user_index =0
-		# Create a list to store users at the same approval level
-		next_approval_users = []
+		
 		for index,approval in enumerate(self.workflow,start=1):
 			self.max_approval_level+=1
 			
@@ -80,28 +77,18 @@ class NittaMultipleflow(Document):
 		if self.current_approval_level==0:
 			
 			level=self.workflow[self.current_approval_level].level
-			level_count=self.workflow[self.current_approval_level].level_count
 			# Function call to get_level
 			result = get_level(level, self.name)
-
-			# Access the values in the result dictionary
 			user = result['user']
-			status = result['status']
-			pending=result['pending']
 			self.next_approval_by=user
-			if status=='status':
-				
-				if int(pending)==int(level_count):
-					print("pending",pending,level_count)
-					self.status="Initiated"
-				
+			self.status="Initiated"			
 		elif self.current_approval_level <= self.max_approval_level:
 			level=self.workflow[self.current_approval_level-1].level
 			# Function call to get_level
 			result = get_level(level, self.name)
 
 			# Access the values in the result dictionary
-			user = result['user']
+			user = result['user']   
 			status = result['status']
 			pending=result['pending']
 			rejected=result['Rejected']
@@ -113,59 +100,22 @@ class NittaMultipleflow(Document):
 			if status=="Final Approved":
 				self.status="Final Approved "+'('+" Approved: "+str(approved)+" Rejected: "+str(rejected)+" pending: "+str(pending)+')'
 			if status=="Approved":
-				print("status")
-			# 	self.status = (
-			# 	'<span style="color: green;">Level {}</span><span style="color:green;font-weight:bold"> Approved</span> ('
-			# 	'<span style="color: green;">Approved: {}</span> '
-			# 	'<span style="color: red;">Rejected: {}</span> '
-			# 	'<span style="color: orange;">Pending: {}</span>)'.format(level, approved, rejected, pending)
-			# )
+				
 				self.status='Level '+level+" Approved "+'('+" approved: "+str(approved)+" rejected: "+str(rejected)+" pending: "+str(pending)+')'
+				self.update_assigned_date(int(level))
 			if status=='status':
-				approval_flow = self.workflow[self.current_approval_level]
-			# 	self.status = (
-			# 	'<span style="color: blue;">Level {}</span> ('
-			# 	'<span style="color: green;">Approved: {}</span> '
-			# 	'<span style="color: red;">Rejected: {}</span> '
-			# 	'<span style="color: orange;">Pending: {}</span>)'.format(level, approved, rejected, pending)
-			# )
+				# approval_flow = self.workflow[self.current_approval_level]
+			
 				self.status='Level '+level+'('+" approved: "+str(approved)+" rejected: "+str(rejected)+" pending: "+str(pending)+')'
+				
 			if not self.rejected and not self.modify:
 				self.update_assigned_date(level)
 				if current_user_index>0:
 					self.update_updated_date(current_user_index)	
 				
-				approval_flow = self.workflow[self.current_approval_level-1]
+				# approval_flow = self.workflow[self.current_approval_level-1]
 				
-			# else:
-				
-			# 	approval_flow = self.workflow[self.current_approval_level+1]
-				
-			# 	if current_user_index>0:
-			# 		self.update_updated_date(current_user_index)	
-
-		# else:
-		# 	print("approval",self.current_approval_level,self.workflow[self.current_approval_level-1].level)
-		# 	level=self.workflow[self.current_approval_level-1].level
-		# 	# Function call to get_level
-		# 	result = get_level(level, self.name)
-
-		# 	# Access the values in the result dictionary
 			
-		# 	status = result['status']
-		
-			
-			
-			
-		# 	if status=="Rejected":
-		# 		self.rejected=True
-		# 		self.status='Level '+level+"Rejected"+"Approved:"+str(approved)+"Rejected"+str(rejected)+"pending"+str(pending)
-			
-		# 	if status=="Approved":
-		# 		self.status='Level '+level+"Approved"+"Approved:"+str(approved)+"Rejected"+str(rejected)+"pending"+str(pending)
-		
-			
-		# 	self.next_approval_by=None
 			
 		
 		# set assign date for first user in approval flow
@@ -265,8 +215,27 @@ def get_workflow_transition(work_flow_name):
 		
 	return {'Status':True,'data':data}
 
+# @frappe.whitelist()
+# def get_employee_details(name):
+# 	return frappe.db.sql("""SELECT role.division FROM `tabNitta User` employee inner join `tabNitta User Role` role 
+# 	on employee.name=role.parent
+# 	WHERE  employee.email=%(name)s""",values={'name':name},as_dict=1)
+
 @frappe.whitelist()
-def get_employee_details(name):
-	return frappe.db.sql("""SELECT role.division FROM `tabNitta User` employee inner join `tabNitta User Role` role 
-	on employee.name=role.parent
-	WHERE  employee.email=%(name)s""",values={'name':name},as_dict=1)
+def get_department(doctype, txt, searchfield, start, page_len, filters):
+	print("department")
+	return frappe.db.sql("""SELECT user.name 
+	FROM `tabNitta User`  user inner join `tabNitta User Role` role on user.name=role.parent
+	WHERE role.departmentfunction = %(department)s and role.role=%(role)s
+	
+	 """.format(**{
+				'key': searchfield
+			}), {
+			'txt': "%{}%".format(txt),
+			'_txt': txt.replace("%", ""),
+			'start': start,
+			'page_len': page_len,
+			'department':filters["department"],
+			'role':filters['role']
+
+		})

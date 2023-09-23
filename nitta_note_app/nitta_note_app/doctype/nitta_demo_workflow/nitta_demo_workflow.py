@@ -7,16 +7,13 @@ from frappe.model.document import Document
 class NittademoWorkflow(Document):
 	# pass
 	def before_save(self):
-		 # Get the child table rows
 		transition_rows = self.transition
-
-		 # Create a dictionary to store total counts for each level
 		level_counts = {}
 
 		# Iterate through child table rows to calculate total counts for each level
 		for row in transition_rows:
 			level = row.level
-
+  
 			# Initialize the count if it doesn't exist
 			if level not in level_counts:
 				level_counts[level] = 0
