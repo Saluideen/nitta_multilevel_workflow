@@ -6,6 +6,27 @@ from frappe.model.document import Document
 from frappe.share import add as add_share
 
 class NittaMultipleflow(Document):
+	# def before_save(self):
+	# 	transition_rows = self.workflow
+	# 	level_counts = {}
+
+	# 	# Iterate through child table rows to calculate total counts for each level
+	# 	for row in transition_rows:
+	# 		level = row.level
+  
+	# 		# Initialize the count if it doesn't exist
+	# 		if level not in level_counts:
+	# 			level_counts[level] = 0
+
+	# 		# Increment the total count for the current level
+	# 		level_counts[level] += 1
+	# 	# Sort transition_rows based on the "level" field
+	# 	transition_rows = sorted(transition_rows, key=lambda x: x.level)
+
+	# 	# Update the "level_count" field for each row with the total count for its level
+	# 	for row in transition_rows:
+	# 		level = row.level
+	# 		row.level_count = level_counts.get(level, 0)
 	def after_insert(self):
 		self.date=frappe.utils.today()
 		self.set_workflow()
@@ -102,14 +123,14 @@ class NittaMultipleflow(Document):
 			if status=="Approved":
 				
 				self.status='Level '+level+" Approved "+'('+" approved: "+str(approved)+" rejected: "+str(rejected)+" pending: "+str(pending)+')'
-				self.update_assigned_date(int(level))
+				self.update_assigned_date(int(level)+1)
 			if status=='status':
 				# approval_flow = self.workflow[self.current_approval_level]
 			
 				self.status='Level '+level+'('+" approved: "+str(approved)+" rejected: "+str(rejected)+" pending: "+str(pending)+')'
 				
 			if not self.rejected and not self.modify:
-				self.update_assigned_date(level)
+				# self.update_assigned_date((level))
 				if current_user_index>0:
 					self.update_updated_date(current_user_index)	
 				
@@ -156,17 +177,22 @@ def get_level(level,name):
 
 	status_count=0
 	user=frappe.db.sql("""select user,status,level_count from `tabNitta Multiple Approval Flow` where parent=%(name)s 
-	and level=%(level)s  """,
+	and level=%(level)s and status!='Ownership Changed' """,
 	values={'name':name,'level':level},as_dict=1)
 	pending_count=sum(1 for user_info in user if user_info['status'] == 'Pending')
 	approved_count=sum(1 for user_info in user if user_info['status'] == 'Approved')
 	rejected_count=sum(1 for user_info in user if user_info['status'] == 'Rejected')
+	ownership_count=sum(1 for user_info in user if user_info['status'] == 'Ownership Changed')
+	
 	if pending_count==0:
+		count=float(approved_count)+float(rejected_count)
+		
 
 		
-		if float(approved_count) >= float(user[0]['level_count']) * 0.5:
+		if float(approved_count) >= float(count) * 0.5:
 			next_level =int(level )+ 1  # Calculate the next level as the immediate number after the current level
-			users=frappe.db.sql("""select user,status,level_count from `tabNitta Multiple Approval Flow` where parent=%(name)s and level=%(level)s  """,
+			users=frappe.db.sql("""select user,status,level_count from `tabNitta Multiple Approval Flow` where parent=%(name)s and 
+			level=%(level)s and status!='Ownership Changed' """,
 			values={'name':name,'level':next_level},as_dict=1)
 			if(len(users)>0):
 				

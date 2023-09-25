@@ -41,7 +41,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Pending\nApproved\nRejected"
+   "options": "Pending\nApproved\nRejected\nOwnership Changed"
   },
   {
    "fieldname": "assigned_date",
@@ -81,7 +81,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-09-19 11:14:11.311183",
+ "modified": "2023-09-23 09:44:36.015633",
  "modified_by": "Administrator",
  "module": "Nitta Note App",
  "name": "Nitta Multiple Approval Flow",

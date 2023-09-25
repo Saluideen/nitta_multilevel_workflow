@@ -20,6 +20,8 @@ class NittademoWorkflow(Document):
 
 			# Increment the total count for the current level
 			level_counts[level] += 1
+		# Sort transition_rows based on the "level" field
+		transition_rows = sorted(transition_rows, key=lambda x: x.level)
 
 		# Update the "level_count" field for each row with the total count for its level
 		for row in transition_rows:

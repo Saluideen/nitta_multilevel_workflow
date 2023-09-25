@@ -24,7 +24,8 @@
    "fieldname": "workflow",
    "fieldtype": "Table",
    "label": "Workflow",
-   "options": "Nitta Multiple Approval Flow"
+   "options": "Nitta Multiple Approval Flow",
+   "read_only": 1
   },
   {
    "default": "Draft",
@@ -46,7 +47,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-22 11:24:43.420445",
+ "modified": "2023-09-23 14:42:20.453661",
  "modified_by": "Administrator",
  "module": "Nitta Note App",
  "name": "Nitta Multiple flow",
