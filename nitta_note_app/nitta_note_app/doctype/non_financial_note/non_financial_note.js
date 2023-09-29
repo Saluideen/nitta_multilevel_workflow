@@ -515,7 +515,7 @@ frappe.ui.form.on('Non Financial Note', {
 				docname: frm.docname,
 				allow_multiple: false,
 				restrictions: {
-					allowed_file_types: [".pdf"]
+					allowed_file_types: [".pdf",".png", ".jpeg", ".jpg"]
 				},
 				folder: 'Home/Attachments',
 				on_success: (file_doc) => {

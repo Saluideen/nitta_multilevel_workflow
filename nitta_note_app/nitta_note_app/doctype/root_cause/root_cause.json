@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-28 11:17:17.991554",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "department",
+  "root",
+  "correction",
+  "corrective_action",
+  "tid",
+  "disposal_action"
+ ],
+ "fields": [
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "root",
+   "fieldtype": "Data",
+   "label": "Root"
+  },
+  {
+   "fieldname": "correction",
+   "fieldtype": "Data",
+   "label": "Correction"
+  },
+  {
+   "fieldname": "corrective_action",
+   "fieldtype": "Data",
+   "label": "Corrective Action"
+  },
+  {
+   "fieldname": "tid",
+   "fieldtype": "Data",
+   "label": "TID"
+  },
+  {
+   "fieldname": "disposal_action",
+   "fieldtype": "Data",
+   "label": "Disposal Action"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-09-28 15:47:10.865813",
+ "modified_by": "Administrator",
+ "module": "Nitta Note App",
+ "name": "Root Cause",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -12,6 +12,7 @@ from frappe.utils import get_url_to_form
 from frappe.utils.pdf import get_pdf
 from frappe.utils.file_manager import get_file,download_file,get_file_path,write_file,save_file
 from PyPDF2 import PdfMerger
+from PIL import Image
 from frappe.utils import get_site_path
 
 class NonFinancialNote(Document):
@@ -577,38 +578,51 @@ def remove_unused_files(doctype,docname):
 		remove_file_backgroud(unattached_files)
 
 @frappe.whitelist()
-def download_pdf(doctype,docname):	
-	
-	files=[]
-
-	# Creating and save Print format to public files folder
+def download_pdf(doctype,docname):
+	files = []
 	html = frappe.get_print(doctype, docname, 'Nitta Non Financial Format', doc=None,)
 	pdf = get_pdf(html)
-	res = write_file(pdf,docname+'_print.pdf',is_private=0)
+	res = write_file(pdf, docname + '_print.pdf', is_private=0)
 	files.append(res)
 
-	# Get attached file names
-	file_names=get_attached_files(doctype,docname)
-	
-	# Get file urls
-	file_urls=frappe.get_all("File",
-		filters={"name":["IN",file_names]},
-		fields=['file_url'],
-		pluck='file_url'
-		)
-	
-	# Get file from file url 
-	for file_url in file_urls:
-		files.append(
-			get_file_path(file_url)
-			)
-		
-	# Merging
-	merger = PdfMerger()
-	for file in files:
-		merger.append(file)
-	save_file_name ='files/'+docname+'.pdf'
-	merger.write(get_site_path()+'/public/'+save_file_name)
-	merger.close()
+    # Get attached file names
+    file_names = get_attached_files(doctype, docname)
 
-	return save_file_name
+    # Get file urls
+    file_urls = frappe.get_all("File",
+                               filters={"name": ["IN", file_names]},
+                               fields=['file_url'],
+                               pluck='file_url'
+                               )
+
+    # Download and convert image files to PDF
+    for file_url in file_urls:
+        file_path = get_file_path(file_url)
+        file_extension = os.path.splitext(file_path)[1].lower()
+
+        if file_extension in ['.jpg', '.jpeg', '.png']:
+            # Convert image to PDF
+            img = Image.open(file_path)
+            img_pdf = img.convert('RGB')
+            img_pdf_path = file_path.replace(file_extension, '.pdf')
+            img_pdf.save(img_pdf_path)
+            files.append(img_pdf_path)
+        elif file_extension == '.pdf':
+            files.append(file_path)
+
+    # Merging PDFs and image PDFs
+    merger = PdfMerger()
+    for file in files:
+        merger.append(file)
+
+    save_file_name = 'files/' + docname + '.pdf'
+    save_file_path = get_site_path() + '/public/' + save_file_name
+    merger.write(save_file_path)
+    merger.close()
+
+    # Remove temporary image PDF files
+    for file in files:
+        if file.endswith('.pdf') and os.path.exists(file):
+            os.remove(file)
+
+    return save_file_name

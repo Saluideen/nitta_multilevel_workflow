@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-28 11:19:41.276638",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sop_ref",
+  "ref_no",
+  "from_date",
+  "initiating_department",
+  "division",
+  "lot_no",
+  "parameter",
+  "specification",
+  "actual_value",
+  "root_cause",
+  "comments",
+  "approved_by",
+  "verified_by",
+  "receving_deparments"
+ ],
+ "fields": [
+  {
+   "fieldname": "sop_ref",
+   "fieldtype": "Data",
+   "label": "SOP Ref"
+  },
+  {
+   "fieldname": "ref_no",
+   "fieldtype": "Data",
+   "label": "Ref No"
+  },
+  {
+   "fieldname": "initiating_department",
+   "fieldtype": "Data",
+   "label": "Initiating Department"
+  },
+  {
+   "fieldname": "division",
+   "fieldtype": "Data",
+   "label": "Division"
+  },
+  {
+   "fieldname": "lot_no",
+   "fieldtype": "Data",
+   "label": "Lot no"
+  },
+  {
+   "fieldname": "parameter",
+   "fieldtype": "Data",
+   "label": "Parameter"
+  },
+  {
+   "fieldname": "specification",
+   "fieldtype": "Data",
+   "label": "Specification"
+  },
+  {
+   "fieldname": "actual_value",
+   "fieldtype": "Data",
+   "label": "Actual Value"
+  },
+  {
+   "fieldname": "root_cause",
+   "fieldtype": "Table",
+   "label": "Root Cause",
+   "options": "Root Cause"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Data",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved By"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Data",
+   "label": "Verified By"
+  },
+  {
+   "fieldname": "receving_deparments",
+   "fieldtype": "Data",
+   "label": "receving deparments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-09-28 16:40:28.474828",
+ "modified_by": "Administrator",
+ "module": "Nitta Note App",
+ "name": "custom print",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
