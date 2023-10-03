@@ -13,6 +13,7 @@ from frappe.utils.pdf import get_pdf
 from frappe.utils.file_manager import get_file,download_file,get_file_path,write_file,save_file
 from PyPDF2 import PdfMerger
 from PIL import Image
+import os
 from frappe.utils import get_site_path
 
 class NonFinancialNote(Document):
@@ -92,7 +93,8 @@ class NonFinancialNote(Document):
 			approval.save()
 		else:
 			frappe.throw("Assign Approval flow")
-
++
+*********
 	def update_updated_date(self,index):
 		approval_flow=frappe.get_all("Nitta Approval Flow",filters={'parent':self.name,'parenttype':self.doctype,'idx':index})
 		if len(approval_flow)>0:
@@ -578,51 +580,64 @@ def remove_unused_files(doctype,docname):
 		remove_file_backgroud(unattached_files)
 
 @frappe.whitelist()
-def download_pdf(doctype,docname):
-	files = []
-	html = frappe.get_print(doctype, docname, 'Nitta Non Financial Format', doc=None,)
-	pdf = get_pdf(html)
-	res = write_file(pdf, docname + '_print.pdf', is_private=0)
-	files.append(res)
-
-    # Get attached file names
+def download_pdf(doctype, docname):
+    files = []
+    html = frappe.get_print(doctype, docname, 'Nitta Non Financial Format', doc=None)
+    pdf = get_pdf(html)
+    res = write_file(pdf, docname + '_print.pdf', is_private=0)
+    files.append(res)
+    
     file_names = get_attached_files(doctype, docname)
-
-    # Get file urls
     file_urls = frappe.get_all("File",
                                filters={"name": ["IN", file_names]},
                                fields=['file_url'],
                                pluck='file_url'
                                )
-
-    # Download and convert image files to PDF
+    
     for file_url in file_urls:
         file_path = get_file_path(file_url)
         file_extension = os.path.splitext(file_path)[1].lower()
-
+        
         if file_extension in ['.jpg', '.jpeg', '.png']:
-            # Convert image to PDF
             img = Image.open(file_path)
-            img_pdf = img.convert('RGB')
+            
+            # Define the desired page size (in points)
+            page_width = 612  # 8.5 inches
+            page_height = 792  # 11 inches
+            
+            # Calculate the scaling factor to fit the image within the page
+            img_width, img_height = img.size
+            scaling_factor = min(page_width / img_width, page_height / img_height)
+            img_width *= scaling_factor
+            img_height *= scaling_factor
+            
+            # Resize the image
+            img = img.resize((int(img_width), int(img_height)))
+            
             img_pdf_path = file_path.replace(file_extension, '.pdf')
+            img_pdf = img.convert('RGB')
             img_pdf.save(img_pdf_path)
             files.append(img_pdf_path)
         elif file_extension == '.pdf':
             files.append(file_path)
-
+    
     # Merging PDFs and image PDFs
     merger = PdfMerger()
     for file in files:
-        merger.append(file)
-
+        try:
+            if file.endswith('.pdf') and os.path.exists(file):
+                merger.append(file)
+        except FileNotFoundError as e:
+            print(f"Error appending {file}: {e}")
+    
     save_file_name = 'files/' + docname + '.pdf'
     save_file_path = get_site_path() + '/public/' + save_file_name
     merger.write(save_file_path)
     merger.close()
-
-    # Remove temporary image PDF files
-    for file in files:
-        if file.endswith('.pdf') and os.path.exists(file):
-            os.remove(file)
-
-    return save_file_name
+    
+    # # Optionally, remove the temporary image PDFs
+    # for file in files:
+    #     if file.endswith('.pdf') and os.path.exists(file):
+    #         os.remove(file)
+    
+    return save_file_name*-/
